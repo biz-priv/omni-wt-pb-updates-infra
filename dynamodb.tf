@@ -1,5 +1,5 @@
-resource "aws_dynamodb_table" "omni-pb-214-add-milestone" {
-  name             = "omni-pb-214-add-milestone-${var.env}"
+resource "aws_dynamodb_table" "omni-pb-wt-milestones-update" {
+  name             = "omni-pb-wt-milestones-update-${var.env}"
   billing_mode     = "PAY_PER_REQUEST"
   hash_key         = "Housebill"
   range_key        = "StatusCode"
@@ -20,5 +20,6 @@ resource "aws_dynamodb_table" "omni-pb-214-add-milestone" {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
+    Name        = "omni-pb-wt-milestones-update"
   }
 }

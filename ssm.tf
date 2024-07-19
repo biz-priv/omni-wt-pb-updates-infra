@@ -1,28 +1,28 @@
-resource "aws_ssm_parameter" "omni-pb-214-add-milestone-dynamodb-name" {
-  name  = "/omni-pb-214/${var.env}/add-milestone/db"
+resource "aws_ssm_parameter" "omni-pb-wt-milestones-update-dynamodb-name" {
+  name  = "/omni-pb-wt/${var.env}/milestones-update/db"
   type  = "String"
-  value = aws_dynamodb_table.omni-pb-214-add-milestone.name
+  value = aws_dynamodb_table.omni-pb-wt-milestones-update.name
 
   tags = {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
-    Name = "omni-pb-214-add-milestone"
+    Name = "omni-pb-wt-milestones-update"
   }
 }
 
-resource "aws_ssm_parameter" "add-milestone-streamArn" {
-  name  = "/omni-pb-rt/${var.env}/214-add-milestone/ddb.streamArn"
+resource "aws_ssm_parameter" "milestones-update-streamArn" {
+  name  = "/omni-pb-wt/${var.env}/milestones-update/ddb.streamArn"
   type  = "String"
-  value = aws_dynamodb_table.omni-pb-214-add-milestone.stream_arn
+  value = aws_dynamodb_table.omni-pb-wt-milestones-update.stream_arn
 
   tags = {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
-    Name = "omni-pb-214-add-milestone"
+    Name = "omni-pb-wt-milestones-update-stream"
   }
 }
 
