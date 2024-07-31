@@ -16,6 +16,18 @@ resource "aws_dynamodb_table" "omni-pb-wt-milestones-update" {
     type = "S"
   }
 
+  attribute {
+    name = "Status"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "Status-index"
+    hash_key        = "Status"
+    range_key       = "StatusCode"
+    projection_type = "ALL"
+  }
+
   tags = {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
