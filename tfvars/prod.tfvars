@@ -7,4 +7,4 @@ omni_pb_add_milestone_emails       = ["omnidev@bizcloudexperts.com", "support@bi
 omni_ivia_addMilestone_console_url = "https://worldtrak.omnilogistics.com/WTKServices/shipments.asmx?op=UpdateStatusByConsolNo"
 omni_loadtracking_url              = "https://tms-lvlp.loadtracking.com/ws/api/images"
 omni_wt_upload_doc_url             = "https://api.omnilogistics.com/v1/uploadpoddocument"
-omni_wt_upload_doc_api_key         = "vMPNocZ1uA3KBwgCtnt9p9m7yZGvywip2AuCsv3p"
+omni_wt_upload_doc_api_key         = "JPRy7nJdcN40eaIfQN685Xprw8kK1zF8ZYCS8Zi6"
