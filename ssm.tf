@@ -123,3 +123,87 @@ resource "aws_ssm_parameter" "omni-pb-wt-milestones-update-dynamodb-status-index
     Name        = "/omni-pb-wt/${var.env}/milestones-update/db-status-index"
   }
 }
+
+resource "aws_ssm_parameter" "omni-pb-rt-movement-queue-arn" {
+  name  = "/omni-pb-wt/${var.env}/movement-table-stream-queue-arn"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_movement_table_stream_processor_queue.arn
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/movement-table-stream-queue"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-rt-movement-queue-url" {
+  name  = "/omni-pb-wt/${var.env}/movement-table-stream-queue-url"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_movement_table_stream_processor_queue.url
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/movement-table-stream-queue-url"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-rt-stop-queue-arn" {
+  name  = "/omni-pb-wt/${var.env}/stop-table-stream-queue-arn"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_stop_table_stream_processor_queue.arn
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/stop-table-stream-queue"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-rt-stop-queue-url" {
+  name  = "/omni-pb-wt/${var.env}/stop-table-stream-queue-url"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_stop_table_stream_processor_queue.url
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/stop-table-stream-queue-url"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-wt-upload-doc-url" {
+  name  = "/omni-pb-wt/${var.env}/upload-doc-url"
+  type  = "String"
+  value = var.omni_wt_upload_doc_url
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/upload-doc-url"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-wt-upload-doc-api-key" {
+  name  = "/omni-pb-wt/${var.env}/upload-doc-api-key"
+  type  = "String"
+  value = var.omni_wt_upload_doc_url
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/upload-doc-api-key"
+  }
+}
