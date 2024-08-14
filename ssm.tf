@@ -170,7 +170,7 @@ resource "aws_ssm_parameter" "omni-pb-wt-upload-doc-url" {
 resource "aws_ssm_parameter" "omni-pb-wt-upload-doc-api-key" {
   name  = "/omni-pb-wt/${var.env}/upload-doc-api-key"
   type  = "String"
-  value = var.omni_wt_upload_doc_url
+  value = var.omni_wt_upload_doc_api_key
 
   tags = {
     Application = "Live Power broker Updates"
