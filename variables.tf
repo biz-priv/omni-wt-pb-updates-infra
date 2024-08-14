@@ -18,8 +18,13 @@ variable "created_by" {
   nullable = false
 }
 
+variable "application" {
+  type     = string
+  nullable = false
+}
+
 variable "omni_pb_add_milestone_emails" {
-  type    = list(string)
+  type     = list(string)
   nullable = false
 }
 
@@ -29,6 +34,16 @@ variable "omni_ivia_addMilestone_console_url" {
 }
 
 variable "omni_loadtracking_url" {
+  type     = string
+  nullable = false
+}
+
+variable "omni_wt_upload_doc_url" {
+  type     = string
+  nullable = false
+}
+
+variable "omni_wt_upload_doc_api_key" {
   type     = string
   nullable = false
 }
