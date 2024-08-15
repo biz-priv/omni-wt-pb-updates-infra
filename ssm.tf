@@ -29,14 +29,14 @@ resource "aws_ssm_parameter" "milestones-update-streamArn" {
 resource "aws_ssm_parameter" "omni-pb-error-topic" {
   name  = "/omni-pb-rt/${var.env}/error-notification/arn"
   type  = "String"
-  value = aws_sns_topic.omni-pb-add-milestone-error-notification.name
+  value = aws_sns_topic.omni-pb-add-milestone-error-notification.arn
 
   tags = {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
-    Name        = "omni-pb-add-milestone-error-notification"
+    Name        = "/omni-pb-rt/${var.env}/error-notification/arn"
   }
 }
 
