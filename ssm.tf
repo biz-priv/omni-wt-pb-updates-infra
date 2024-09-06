@@ -222,3 +222,17 @@ resource "aws_ssm_parameter" "omni-pb-rt-callin-queue-arn" {
     Name        = "/omni-pb-wt/${var.env}/callin-table-stream-queue-arn"
   }
 }
+
+resource "aws_ssm_parameter" "omni-pb-rt-callin-queue-url" {
+  name  = "/omni-pb-wt/${var.env}/callin-table-stream-queue-url"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_callin_table_stream_processor_queue.url
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/callin-table-stream-queue-url"
+  }
+}
