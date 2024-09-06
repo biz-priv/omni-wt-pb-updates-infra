@@ -1,6 +1,13 @@
 resource "aws_sqs_queue" "live_rt_movement_table_stream_processor_queue" {
   name                       = "${var.application}-milestone-stream-queue-${var.env}"
   visibility_timeout_seconds = 300
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "${var.application}-milestone-stream-queue-${var.env}"
+  }
 }
 
 data "aws_iam_policy_document" "live_rt_movement_table_stream_processor_queue_policy" {
@@ -36,6 +43,13 @@ resource "aws_sqs_queue_policy" "live_rt_movement_table_stream_processor_queue_p
 resource "aws_sqs_queue" "live_rt_stop_table_stream_processor_queue" {
   name                       = "${var.application}-stop-stream-queue-${var.env}"
   visibility_timeout_seconds = 300
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "${var.application}-stop-stream-queue-${var.env}"
+  }
 }
 
 data "aws_iam_policy_document" "live_rt_stop_table_stream_processor_queue_policy" {
@@ -71,6 +85,13 @@ resource "aws_sqs_queue_policy" "live_rt_stop_table_stream_processor_queue_polic
 resource "aws_sqs_queue" "live_rt_callin_table_stream_processor_queue" {
   name                       = "${var.application}-callin-table-stream-queue-${var.env}"
   visibility_timeout_seconds = 300
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "${var.application}-callin-table-stream-queue-${var.env}"
+  }
 }
 
 data "aws_iam_policy_document" "live_rt_callin_table_stream_processor_queue_policy" {
