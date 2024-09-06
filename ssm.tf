@@ -180,3 +180,59 @@ resource "aws_ssm_parameter" "omni-pb-wt-upload-doc-api-key" {
     Name        = "/omni-pb-wt/${var.env}/upload-doc-api-key"
   }
 }
+
+resource "aws_ssm_parameter" "omni-pb-wt-location-update-dynamodb-name" {
+  name  = "/omni-pb-wt/${var.env}/location-update/db.name"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-wt-location-update.name
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/location-update/db.name"
+  }
+}
+
+resource "aws_ssm_parameter" "location-update-streamArn" {
+  name  = "/omni-pb-wt/${var.env}/location-update/ddb.streamArn"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-wt-location-update.stream_arn
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "omni-pb-wt-location-update-stream"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-rt-callin-queue-arn" {
+  name  = "/omni-pb-wt/${var.env}/callin-table-stream-queue-arn"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_callin_table_stream_processor_queue.arn
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/callin-table-stream-queue-arn"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-rt-callin-queue-url" {
+  name  = "/omni-pb-wt/${var.env}/callin-table-stream-queue-url"
+  type  = "String"
+  value = aws_sqs_queue.live_rt_callin_table_stream_processor_queue.url
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/callin-table-stream-queue-url"
+  }
+}
