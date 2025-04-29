@@ -97,6 +97,20 @@ resource "aws_ssm_parameter" "omni-pb-wt-milestones-update-dynamodb-status-index
   }
 }
 
+resource "aws_ssm_parameter" "omni-pb-wt-shipment-apar-dynamodb-ref-index" {
+  name = "/omni-pb-wt/${var.env}/shipment-apar/db-ref-index"
+  type = "String"
+  value = "RefNo-FK_OrderNo-index"
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt/${var.env}/shipment-apar/db-ref-index"
+  }
+}
+
 resource "aws_ssm_parameter" "omni-pb-rt-movement-queue-arn" {
   name  = "/omni-pb-wt/${var.env}/movement-table-stream-queue-arn"
   type  = "String"
